@@ -161,7 +161,7 @@ else
         echo ""
         echo""
         $normal
-        . build/envsetup.sh && brunch $my_device && rm ~/Android/$rom_dir/out/target/product/$rom_dir/$ota_zip && cp ~/Android/$rom_dir/out/target/product/$my_device/*.zip ~/roms/$rom_dir/rro
+        . build/envsetup.sh && brunch $my_device && rm ~/Android/$rom_dir/out/target/product/$rom_dir/$ota_zip && cp ~/Android/$rom_dir/out/target/product/$my_device/*.zip ~/roms/$rom_dir/$my_device
 fi
 
 
