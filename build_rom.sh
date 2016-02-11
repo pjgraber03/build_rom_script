@@ -85,6 +85,16 @@ echo ""
 $normal
 read askdevices
 
+#Build Type
+echo -e "\n\n${bldgrn} Would you like to build Official?\n"
+echo ""
+echo -e "${bldblu}  1. Yes"
+echo -e "${bldblu}  2. No"
+echo ""
+echo ""
+$normal
+read buildtype
+
 echo ""
 echo ""
 if [ "$askreposync" == "1" ]
@@ -112,13 +122,23 @@ echo ""
 echo ""
 if [ "$askdevices" == "1" ]
 then
-    echo -e "${bldred}  Will build $device_1, $device_2, $device_3 " >&2
+    echo -e "${bldred}  Will build $my_device $device_1 $device_2 device_3 "
 else
-    echo -e "${bldred}  Will be just $my_device... " >&2
+    echo -e "${bldred}  Will be just $my_device... " 
 fi
 echo ""
 echo ""
 
+echo ""
+echo ""
+if [ "$buildtyoe" == "1" ]
+then
+    echo -e "${bldred}  Build will be Official " 
+else
+    echo -e "${bldred}  Build will be Maintenance... "
+fi
+echo ""
+echo ""
 
 sleep 2s
 
@@ -149,15 +169,15 @@ if [ "$askdevices" == "1" ]
 then
         echo ""
         echo ""
-        echo -e "${bldgrn}  Building $device_1, $device_2, $device_3 now " >&2
+        echo -e "${bldgrn}  Building $my_device, $device_1, $device_2, $device_3 now "
         echo ""
         echo ""
         $normal
-        . build/envsetup.sh && brunch $device_1 && . build/envsetup.sh && brunch $device_2 && . build/envsetup.sh && brunch $device_3
+make clean && . build_envsetup.sh && brunch $my_device && mv out/target/product/clark/Bliss*.* /home/web-bliss/Bliss/Official/$my_device && rm -rfv /home/web-bliss/Bliss/Official/$my_device/ota6.xml && mv out/target/product/$my_device/ota6.xml /home/web-bliss/Bliss/Official/$my_device && brunch $device_1 && mv out/target/product/$device_1/Bliss*.* /home/web-bliss/Bliss/Official/$device_1 && rm -rfv /home/web-bliss/Bliss/Official/$device_1/ota6.xml && mv out/target/product/$device_1/ota6.xml /home/web-bliss/Bliss/Official/$device_1 && brunch $device_2 && mv out/target/product/$device_2/Bliss*.* /home/web-bliss/Bliss/Official/$device_2 && rm -rfv /home/web-bliss/Bliss/Official/$device_2/ota6.xml && mv out/target/product/$device_2/ota6.xml /home/web-bliss/Bliss/Official/$device_2 && brunch $device_3 && mv out/target/product/$device_3/Bliss*.* /home/web-bliss/Bliss/Official/$device_3 && rm -rfv /home/web-bliss/Bliss/Official/$device_3/ota6.xml && mv out/target/product/$device_3/ota6.xml /home/web-bliss/Bliss/Official/$device_3
 else
         echo ""
         echo ""
-        echo -e "${bldgrn}  Building $my_device Now... " >&2
+        echo -e "${bldgrn}  Building $my_device Now... "
         echo ""
         echo""
         $normal
