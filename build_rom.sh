@@ -122,7 +122,7 @@ echo ""
 echo ""
 if [ "$askdevices" == "1" ]
 then
-    echo -e "${bldred}  Will build $my_device $device_1 $device_2 device_3 "
+    echo -e "${bldred}  Will build $my_device $device_1 $device_2 $device_3 "
 else
     echo -e "${bldred}  Will be just $my_device... " 
 fi
