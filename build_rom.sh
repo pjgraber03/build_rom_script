@@ -122,9 +122,9 @@ echo ""
 echo ""
 if [ "$askdevices" == "1" ]
 then
-    echo -e "${bldred}  Will build $my_device $device_1 $device_2 $device_3 "
+    echo -e "${bldred}  Will build $my_device $device_1 $device_2 $device_3 "  >&2
 else
-    echo -e "${bldred}  Will be just $my_device... " 
+    echo -e "${bldred}  Will be just $my_device... "  >&2
 fi
 echo ""
 echo ""
@@ -169,7 +169,7 @@ if [ "$askdevices" == "1" ]
 then
         echo ""
         echo ""
-        echo -e "${bldgrn}  Building $my_device, $device_1, $device_2, $device_3 now "
+        echo -e "${bldgrn}  Building $my_device, $device_1, $device_2, $device_3 now "  >&2
         echo ""
         echo ""
         $normal
@@ -177,7 +177,7 @@ make clean && . build_envsetup.sh && brunch $my_device && mv out/target/product/
 else
         echo ""
         echo ""
-        echo -e "${bldgrn}  Building $my_device Now... "
+        echo -e "${bldgrn}  Building $my_device Now... "  >&2
         echo ""
         echo""
         $normal
